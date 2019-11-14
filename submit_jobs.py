@@ -100,37 +100,11 @@ def main():
                              'cp -r ' + os.path.join(mesa_directory,'*')+ ' '+output_directory,
                              run_mesa)
 
-                	replace_line(run_mesa,
-                             './rn', 
-                             #os.path.join(output_directory,'*')+ 'star',
-			     'echo ./rn',
-			     run_mesa)
-
-			# To work with Condor
-			# TODO FIXME Modify to work with Slurm
-			'''
-			replace_line('templates/condor.job.template',
-                             'Log =', 
-                             'Log =' + os.path.join(output_directory,'condor.log'),
-                             condor_job)
-                	replace_line(condor_job,
-                             'Output =', 
-                             'Output =' + os.path.join(output_directory,'condor.out'),
-                             condor_job)
-                	replace_line(condor_job,
-                             'Executable = run_mesa.sh', 
-                             'Executable ='+os.path.join(output_directory,'run_mesa.sh'),
-                             condor_job)
-                	replace_line(condor_job,
-                             'environment = OMP_NUM_THREADS=1;PYTHONBUFFERED=1',
-                             'environment = OMP_NUM_THREADS=1;PYTHONBUFFERED=1;MESA_DIR=' +mesa_root_dir,
-                             condor_job)
-                	replace_line(condor_job,
-                             'Error =', 
-                             'Error =' + os.path.join(output_directory,'condor.err'),
-                             condor_job)
-
-			'''
+                	#replace_line(run_mesa,
+                        #     './rn', 
+                        #     os.path.join(output_directory,'*')+ 'star',
+			#     'echo ./rn',
+			#     run_mesa)
 
 
 			os.system('chmod +x ' + run_mesa)
