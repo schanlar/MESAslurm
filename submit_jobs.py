@@ -64,8 +64,11 @@ def main():
               	final_profile_name = os.path.join(output_directory,'final_profile.data')
             
               	if not os.path.exists(output_directory):
-                	os.makedirs(output_directory)
+                	# Create the output directory
+			os.makedirs(output_directory)
 
+			# Create the specific inlist for this particular stellar model
+			# from the template file
 			replace_line('templates/inlist_project.template', 
                    			   'save_model_filename', 
                              		   'save_model_filename = ' + '\''+model_name+'\'', 
@@ -90,6 +93,10 @@ def main():
                 	modify_inlist_value(inlist_project,variable2['name'],value2,inlist_project)
                 	modify_inlist_value(inlist_project,variable3['name'],value3,inlist_project)
 
+			# -------------------------------------------------------------------------------------------------------------------
+			# Create the bash script that contains the directives for submitting
+			# the job to SLURM. The script also copies all necessary files to  
+			# execute the MESA run (e.g. mk, rn)
 			replace_line(os.path.join(script_directory, 'templates/run_mesa.sh.template'),
                                         '# SBATCH --job-name=run_mesa_template',
                                         "# SBATCH --job-name=run_mesa_" + "{:0.4f}_{:0.4f}_{:0.4f}".format(value1,value2,value3),
@@ -107,6 +114,7 @@ def main():
 			#     run_mesa)
 
 
+			# Make the bash script executable and run it
 			os.system('chmod +x ' + run_mesa)
                 	print('')
                 	print('creating files in' + output_directory)
