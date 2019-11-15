@@ -11,6 +11,11 @@ You can download the repository as a zip file, or by typing
 in a terminal window.
 
 ## Initialize and Run
+**Step 0** : Open the template for the batch script that contains directives to submit jobs at Slurm manager.
+You can edit the base options (e.g. number of nodes, cpus per task etc) depending on your needs.
+**DO NOT** modify the batch script besides the directives that were meant
+to be used with Slurm (the ones starting with ``#SBATCH``).
+
 **Step 1** : Open ``config.py`` using the editor of your choice.
 
 **Step 2** : Specify the paths for the ``MESA`` stellar evolution code (check their [site](http://mesa.sourceforge.net/)),
