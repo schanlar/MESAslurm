@@ -102,6 +102,16 @@ def main():
                                         run_mesa)
 
 			replace_line(run_mesa,
+				'#SBATCH --output=job_output.stdout',
+				'#SBATCH --output=' + "{:0.4f}_{:0.4f}_{:0.4f}".format(value1,value2,value3) + '_output.stdout',
+				run_mesa)
+
+			replace_line(run_mesa,
+				'#SBATCH --error=job_error.stderr',
+				'#SBATCH --error=' + "{:0.4f}_{:0.4f}_{:0.4f}".format(value1,value2,value3) + '_error.stderr',
+				run_mesa)
+
+			replace_line(run_mesa,
                              'cp -r', 
                              'cp -r ' + os.path.join(mesa_directory,'*')+ ' '+output_directory,
                              run_mesa)

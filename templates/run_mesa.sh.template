@@ -1,5 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=run_mesa_template
+#SBATCH --output=job_output.stdout
+#SBATCH --error=job_error.stderr
 #SBATCH --partition=sbatch
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=3
