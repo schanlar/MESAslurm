@@ -4,10 +4,10 @@
 #out_directory= '/vol/hal/halraid/schanlar/Condor/HeZAMS'
 #script_directory = '/vol/aibn1107/data2/schanlar/MESAcondor'
 
-#mesa_root_dir = ''
-mesa_directory = '/home/schanlar/MESAslurm/Condor'
-out_directory = '/home/schanlar/test_output'
-script_directory = '/home/schanlar/MESAslurm'
+mesa_root_dir = '/mnt/apps/prebuilt/MESA/r1039'
+mesa_directory = '/mnt/scratch_a/users/c/csavvas/MESAslurm/Slurm/work'
+out_directory = '/mnt/scratch_a/users/c/csavvas/He_stars_grid'
+script_directory = '/mnt/scratch_a/users/c/csavvas/MESAslurm'
 
 
 #Can explore up to three variables

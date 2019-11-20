@@ -2,7 +2,7 @@
 #SBATCH --job-name=run_mesa_template
 #SBATCH --output=job_output.stdout
 #SBATCH --error=job_error.stderr
-#SBATCH --partition=sbatch
+#SBATCH --partition=batch
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=3
 #SBATCH --cpus-per-task=6
@@ -13,9 +13,15 @@
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
+module load MESA
+
 cp -r
+
+source $MESASDK_ROOT/bin/mesasdk_init.sh
 
 # echo "trying to execute ./mk"
 ./mk
+
+#module load MESA
 # echo "trying to execute ./rn"
 ./rn
