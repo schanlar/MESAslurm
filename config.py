@@ -1,12 +1,8 @@
 #path to folder that contains the mesa executable
-#mesa_root_dir = '/vol/aibn1107/data2/schanlar/mesa-r10398'
-#mesa_directory = '/vol/aibn1107/data2/schanlar/mesa-r10398/star/test_suite/Condor'
-#out_directory= '/vol/hal/halraid/schanlar/Condor/HeZAMS'
-#script_directory = '/vol/aibn1107/data2/schanlar/MESAcondor'
 
 mesa_root_dir = '/mnt/apps/prebuilt/MESA/r1039'
 mesa_directory = '/mnt/scratch_a/users/c/csavvas/MESAslurm/Slurm/work'
-out_directory = '/mnt/scratch_a/users/c/csavvas/He_stars_grid'
+out_directory = '/mnt/scratch_a/users/c/csavvas/gpu_tests'
 script_directory = '/mnt/scratch_a/users/c/csavvas/MESAslurm'
 
 
@@ -15,8 +11,8 @@ script_directory = '/mnt/scratch_a/users/c/csavvas/MESAslurm'
 variable1 = {'name': 'initial_mass',
              'location': 'inlist_var',
              'type': 'array',
-             'minimum': 1.5,
-             'maximum': 1.5,
+             'minimum': 2.5,
+             'maximum': 2.5,
              'step': 0.1,
 }
 
