@@ -30,8 +30,15 @@
     filename_for_profile_when_terminate  
 
 
+  ! Keep caches separately
+    eosDT_cache_dir = '/mnt/scratch_a/users/c/csavvas/mesa_caches/eosDT_cache'
+    eosPT_cache_dir = '/mnt/scratch_a/users/c/csavvas/mesa_caches/eosPT_cache'
+    eosDE_cache_dir = '/mnt/scratch_a/users/c/csavvas/mesa_caches/eosDE_cache'
+    ionization_cache_dir = '/mnt/scratch_a/users/c/csavvas/mesa_caches/ionization_cache'
+    kap_cache_dir = '/mnt/scratch_a/users/c/csavvas/mesa_caches/kap_cache'
+    rates_cache_dir = '/mnt/scratch_a/users/c/csavvas/mesa_caches/rates_cache'
 
-
+    save_pgstar_files_when_terminate = .true.
 
 
 ! EOS, NUCLEAR REACTION NETWORK, AND OPACITY
@@ -80,7 +87,7 @@ terminal_interval = 10000
 write_header_frequency = 10
 log_directory 
 photo_directory 
-
+extra_terminal_output_file
 
 
    ! high center T limit to avoid negative mass fractions
