@@ -54,6 +54,7 @@ def main():
 				output_directory = os.path.join(out_directory,output_directory)
 				LOGS = os.path.join(output_directory,'LOGS')
 				photos = os.path.join(output_directory,'photos')
+				terminal_log = os.path.join(output_directory, 'terminal_log')
 
 				run_mesa = os.path.join(output_directory,'run_mesa.sh')
 				inlist_project = os.path.join(output_directory,'inlist_project')
@@ -84,6 +85,11 @@ def main():
 					replace_line(inlist_project, 
 							'photo_directory', 
 							'photo_directory = ' +  '\''+photos+'\'', 
+							inlist_project)
+
+					replace_line(inlist_project,
+							'extra_terminal_output_file',
+							'extra_terminal_output_file = ' + '\''+terminal_log+'\'',
 							inlist_project)
 
 					modify_inlist_value(inlist_project,variable1['name'],value1,inlist_project)
@@ -121,6 +127,7 @@ def main():
 				#     run_mesa)
 
 				# Make the bash script executable and run it
+					os.chdir(output_directory)
 					os.system('chmod +x ' + run_mesa)
 					print('')
 					print('creating files in' + output_directory)
