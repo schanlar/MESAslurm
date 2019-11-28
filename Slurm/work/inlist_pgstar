@@ -13,7 +13,7 @@ win_white_on_black_flag = .false.
 
 ! KIPPENHAHN DIAGRAM HISTORY PLOT (star_age)
 !-------------------------------------------------
-Kipp_win_flag = .false.
+Kipp_win_flag = .true.
 
 ! window properties
 Kipp_win_width = 10
@@ -52,7 +52,7 @@ Kipp_file_aspect_ratio = -1  ! Negative means use same as display
 
 ! ABUNDANCE PROFILES
 !-------------------------------------------------
-Abundance_win_flag = .false.
+Abundance_win_flag = .true.
 
 ! window properties
 Abundance_win_width = 6
@@ -122,7 +122,7 @@ Abundance_file_aspect_ratio = -1
 
 ! POWER WINDOW
 !-------------------------------------------------
-Power_win_flag = .false.
+Power_win_flag = .true.
 
 ! window properties
 Power_win_width = 6
@@ -222,7 +222,7 @@ Dynamo_file_aspect_ratio = -1
 
 ! PROFILE PANELS 1
 ! ------------------------------------------------
-Profile_Panels1_win_flag = .false.
+Profile_Panels1_win_flag = .true.
 
 ! window properties
 Profile_Panels1_xleft = 0.15
@@ -282,7 +282,7 @@ Profile_Panels1_file_aspect_ratio = -1
 
 ! PROFILE PANELS 2
 ! ------------------------------------------------
-Profile_Panels2_win_flag = .false.
+Profile_Panels2_win_flag = .true.
 
 ! window properties
 Profile_Panels2_xleft = 0.15
@@ -490,7 +490,7 @@ Grid1_file_aspect_ratio = -1
 
 ! GRID PLOT 2
 ! ------------------------------------------------
- Grid2_win_flag = .false.
+ Grid2_win_flag = .true.
 
 ! window properties
 Grid2_win_width = 14
