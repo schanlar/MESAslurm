@@ -5,8 +5,8 @@
 #SBATCH --partition=gpu
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=20
-#SBATCH --time=1-00:00:00
+#SBATCH --cpus-per-task=10
+#SBATCH --time=01-00:00:00
 #SBATCH --mail-type=FAIL
 #SBATCH --mail-user=schanlar@physics.auth.gr
 

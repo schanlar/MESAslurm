@@ -102,7 +102,7 @@ def main():
 
 					replace_line(os.path.join(script_directory, 'templates/run_mesa.sh.template'),
 							'#SBATCH --job-name=run_mesa_template',
-							"#SBATCH --job-name=run_mesa_" + "{:0.4f}_{:0.4f}_{:0.4f}".format(value1,value2,value3),
+							"#SBATCH --job-name=MESAjob_" + "{:0.4f}_{:0.4f}_{:0.4f}".format(value1,value2,value3),
 							run_mesa)
 
 					replace_line(run_mesa,

@@ -2,7 +2,7 @@
 
 mesa_root_dir = '/mnt/apps/prebuilt/MESA/r1039'
 mesa_directory = '/mnt/scratch_a/users/c/csavvas/MESAslurm/Slurm/work'
-out_directory = '/mnt/scratch_a/users/c/csavvas/gpu_tests'
+out_directory = '/mnt/scratch_a/users/c/csavvas/He_stars_grid/gpu_partition/z0p1_eta1p0'
 script_directory = '/mnt/scratch_a/users/c/csavvas/MESAslurm'
 
 
@@ -11,8 +11,8 @@ script_directory = '/mnt/scratch_a/users/c/csavvas/MESAslurm'
 variable1 = {'name': 'initial_mass',
              'location': 'inlist_var',
              'type': 'array',
-             'minimum': 2.5,
-             'maximum': 2.5,
+             'minimum': 1.2,
+             'maximum': 3.0,
              'step': 0.1,
 }
 
@@ -20,7 +20,7 @@ variable2 = {'name': 'initial_z',
              'location': 'inlist_var',
              'type': 'predetermined_array',
              #'values': [0.0001,0.001,0.02]
-	'values': [0.02]
+	'values': [0.1]
 }
 
 variable3 = {'name': 'wind_scaling_factor',
