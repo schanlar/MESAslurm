@@ -106,6 +106,7 @@ def main():
         for f in glob.glob(path + '/*_error.stderr'):
             with open(f) as error_file:
                 keywords = ['DUE', 'TO', 'TIME', 'LIMIT']
+                # Check if the model stopped due to time limit
                 for line in error_file:
                     if line.startswith('slurmstepd: error:'):
                         words = re.split('-|, |\n, | ', line)
@@ -114,10 +115,16 @@ def main():
                                 # Restart the model if it has stopped
                                 # due to a specified time wall
                                 # For the gpu partition --> max run time == 1 day
-                                photo = searchOutput(path)
-                                createBatchScript(path)
-                                restartMesa(path, photo)
-                                break
+                                reachedTimeWall = True 
+                            else:
+                                reachedTimeWall = False
+
+        if reachedTimeWall:
+            photo = searchOutput(path)
+            #createBatchScript(path)
+            #restartMesa(path, photo)
+            print(f'Restart photo {photo} from path {path}')
+                                
 
 
 
