@@ -119,11 +119,11 @@ def main():
                             else:
                                 reachedTimeWall = False
 
-        if reachedTimeWall:
-            photo = searchOutput(path)
-            #createBatchScript(path)
-            #restartMesa(path, photo)
-            print(f'Restart photo {photo} from path {path}')
+            if reachedTimeWall:
+                photo = searchOutput(path)
+                #createBatchScript(path)
+                #restartMesa(path, photo)
+                print(f'Restart photo {photo} from path {path}')
                                 
 
 
