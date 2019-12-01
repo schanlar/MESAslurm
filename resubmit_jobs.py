@@ -102,6 +102,7 @@ def restartMesa(path, photo):
 def main():
 
     for path in glob.glob(OutputPath +'/*'):
+        reachedTimeWall = False
         # Check if a stderr file exists
         for f in glob.glob(path + '/*_error.stderr'):
             with open(f) as error_file:
@@ -119,11 +120,11 @@ def main():
                             else:
                                 reachedTimeWall = False
 
-            if reachedTimeWall:
-                photo = searchOutput(path)
-                #createBatchScript(path)
-                #restartMesa(path, photo)
-                print(f'Restart photo {photo} from path {path}')
+        if reachedTimeWall:
+            photo = searchOutput(path)
+            #createBatchScript(path)
+            #restartMesa(path, photo)
+            print(f'Restart photo {photo} from path {path}')
                                 
 
 
