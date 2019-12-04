@@ -92,7 +92,6 @@ def restartMesa(path, photo):
 
     os.system('chmod +x ' + os.path.join(path, 'restart_job.sh'))
     os.system('sbatch restart_job.sh')
-    #print('sbatch restart_job.sh')
 
 
 
@@ -102,25 +101,16 @@ def restartMesa(path, photo):
 def main():
 
     for path in glob.glob(OutputPath +'/*'):
-        reachedTimeWall = False
+        restartJob = False
         # Check if a stderr file exists
         for f in glob.glob(path + '/*_error.stderr'):
             with open(f) as error_file:
-                keywords = ['DUE', 'TO', 'TIME', 'LIMIT']
-                # Check if the model stopped due to time limit
+                # Check if the model stopped due to time or memory limit
                 for line in error_file:
-                    if line.startswith('slurmstepd: error:'):
-                        words = re.split('-|, |\n, | ', line)
-                        for key in keywords:
-                            if key in words:
-                                # Restart the model if it has stopped
-                                # due to a specified time wall
-                                # For the gpu partition --> max run time == 1 day
-                                reachedTimeWall = True 
-                            else:
-                                reachedTimeWall = False
+                    if (line.startswith('slurmstepd: error:')) or (line.startswith('date: write error:')):
+                                restartJob = True
 
-        if reachedTimeWall:
+        if restartJob:
             photo = searchOutput(path)
             createBatchScript(path)
             restartMesa(path, photo)
