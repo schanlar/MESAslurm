@@ -109,6 +109,16 @@ def main():
                 for line in error_file:
                     if (line.startswith('slurmstepd: error:')) or (line.startswith('date: write error:')):
                                 restartJob = True
+                                break
+
+        # Check if a stdout file exists
+        for f in glob.glob(path + '/*_output.stdout'):
+            with open(f) as output_file:
+                # Check if the model stopped due to memory limit
+                for line in output_file:
+                    if line.endswith(': No space left on device'):
+                        restartJob = True
+                        break 
 
         if restartJob:
             photo = searchOutput(path)
