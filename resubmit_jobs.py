@@ -98,18 +98,27 @@ def restartMesa(path, photo):
 
 
 
-def main():
+def main(fullStart=False):
 
     for path in glob.glob(OutputPath +'/*'):
         restartJob = False
+
+        # Check if the model had not started to begin with
+        if fullStart:
+            if not os.path.exists(path + '/terminal_log'):
+                try:
+                    os.system('sbatch run_mesa.sh')
+                except Exception as e:
+                    print(e)
+
         # Check if a stderr file exists
         for f in glob.glob(path + '/*_error.stderr'):
             with open(f) as error_file:
                 # Check if the model stopped due to time or memory limit
                 for line in error_file:
                     if (line.startswith('slurmstepd: error:')) or (line.startswith('date: write error:')):
-                                restartJob = True
-                                break
+                        restartJob = True
+                        break
 
         # Check if a stdout file exists
         for f in glob.glob(path + '/*_output.stdout'):
@@ -120,14 +129,18 @@ def main():
                         restartJob = True
                         break 
 
+
         if restartJob:
-            photo = searchOutput(path)
-            createBatchScript(path)
-            restartMesa(path, photo)
-            print('Restart photo {} from path {}'.format(photo, path))
+            try:
+                photo = searchOutput(path)
+                createBatchScript(path)
+                restartMesa(path, photo)
+                print('Restart photo {} from path {}'.format(photo, path))
+            except Exception as e:
+                print(e)
                                 
 
 
 
 if __name__ == "__main__":
-    main()
+    main(fullStart=False)
