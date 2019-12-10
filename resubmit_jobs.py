@@ -48,11 +48,11 @@ def createBatchScript(path):
     os.system('echo ' + '\#\SBATCH --job-name=restart_mesa_template >> restart_job.sh')
     os.system('echo ' + '\#\SBATCH --output=job_output.stdout >> restart_job.sh')
     os.system('echo ' + '\#\SBATCH --error=job_error.stderr >> restart_job.sh')
-    os.system('echo ' + '\#\SBATCH --partition=gpu >> restart_job.sh')
+    os.system('echo ' + '\#\SBATCH --partition=batch >> restart_job.sh')
     os.system('echo ' + '\#\SBATCH --nodes=1 >> restart_job.sh')
     os.system('echo ' + '\#\SBATCH --ntasks-per-node=1 >> restart_job.sh')
     os.system('echo ' + '\#\SBATCH --cpus-per-task=10 >> restart_job.sh')
-    os.system('echo ' + '\#\SBATCH --time=01-00:00:00 >> restart_job.sh')
+    os.system('echo ' + '\#\SBATCH --time=07-00:00:00 >> restart_job.sh')
     os.system('echo ' + '\#\SBATCH --mail-type=FAIL >> restart_job.sh')
     os.system('echo ' + '\#\SBATCH --mail-user=schanlar@physics.auth.gr >> restart_job.sh')
 
